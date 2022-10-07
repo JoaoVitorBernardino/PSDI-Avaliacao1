@@ -23,6 +23,16 @@ if cntVerde:
         cv.putText(image, "Green", (int(cx), int(cy)), cv.FONT_HERSHEY_COMPLEX, 0.9, (0, 0, 0), 2)
         cv.circle(image, (int(cx), int(cy)), int(r), (0, 0, 0), 3)
 
+maskAzul = cv.inRange(hsvImg, (67, 50, 50), (100, 255, 255))
+cntAzul = cv.findContours(maskAzul, cv.RETR_EXTERNAL, cv.CHAIN_APPROX_SIMPLE)[0]
+cntAzul = sorted(cntAzul, key=cv.contourArea, reverse=True)[:2]
+
+if cntAzul:
+    for cnt in cntAzul:
+        (cx, cy), r = cv.minEnclosingCircle(cnt)
+        cv.putText(image, "Blue", (int(cx), int(cy)), cv.FONT_HERSHEY_COMPLEX, 0.9, (0, 0, 0), 2)
+        cv.circle(image, (int(cx), int(cy)), int(r), (0, 0, 0), 3)
+
 
 cv.imshow("image", image)
 cv.waitKey(0)
