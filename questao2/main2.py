@@ -10,8 +10,8 @@ tracker.init(image, box)
 
 def retangulo(image, box):
     x, y, w, h = int(box[0]), int(box[1]), int(box[2]), int(box[3])
-    cv.rectangle(image, (x, y), ((x + w), (y + h)), (255, 0, 0), 3, 1)
-    cv.putText(image, "Frames", (75, 80), cv.FONT_HERSHEY_SIMPLEX, 0.8, (0, 255, 0), 2)
+    cv.rectangle(image, (x, y), ((x + w), (y + h)), (0, 0, 0), 3, 1)
+    cv.putText(image, "Frames", (75, 80), cv.FONT_HERSHEY_SIMPLEX, 0.8, (0, 0, 255), 2)
 
 
 while True:
